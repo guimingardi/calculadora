@@ -65,11 +65,13 @@ function zerar(){
     tela.innerText = ''
 }
 
-
 function ponto(){
     contador++
     if (contador > 1){
         tela.innerText = 'Error'
+    }
+    if(tela.innerText == '.'){
+        tela.innerText = '0.'
     }
 }
 
