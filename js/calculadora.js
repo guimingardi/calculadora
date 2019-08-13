@@ -14,44 +14,51 @@ let clear = document.querySelector('.one-one').addEventListener('click', um_por_
 let dot = document.querySelector('.dot').addEventListener('click', ponto)
 document.addEventListener('keydown', digitado)
 
-let digitou 
+let digitou
 
 
 function digitado() {
     digitou = event.keyCode
-    if(digitou == 49){
-        tela.innerText +=1
+    if (digitou == 49) {
+        tela.innerText += 1
     }
-    else if(digitou == 50){
-        tela.innerText +=2
+    else if (digitou == 50) {
+        tela.innerText += 2
     }
-    else if(digitou == 51){
-        tela.innerText +=3
+    else if (digitou == 51) {
+        tela.innerText += 3
     }
-    else if(digitou == 52){
-        tela.innerText +=4
+    else if (digitou == 52) {
+        tela.innerText += 4
     }
-    else if(digitou == 53){
-        tela.innerText +=5
+    else if (digitou == 53) {
+        tela.innerText += 5
     }
-    else if(digitou == 54){
-        tela.innerText +=6
+    else if (digitou == 54) {
+        tela.innerText += 6
     }
-    else if(digitou == 55){
-        tela.innerText +=7
+    else if (digitou == 55) {
+        tela.innerText += 7
     }
-    else if(digitou == 56){
-        tela.innerText +=8
+    else if (digitou == 56) {
+        tela.innerText += 8
     }
-    else if(digitou == 57){
-        tela.innerText +=9
+    else if (digitou == 57) {
+        tela.innerText += 9
     }
-    else if(digitou == 48){
-        tela.innerText +=0
+    else if (digitou == 48) {
+        tela.innerText += 0
     }
-    else if(digitou == 48){
-        tela.innerText +=0
-    } else if (digitou == 43){
+    else if (digitou == 48) {
+        tela.innerText += 0
+    } else if (digitou == 8) {
+        um_por_vez()
+    }
+    else if (digitou == 27) {
+        zerar()
+    }
+    else if (digitou == 187){
+        igual()
     }
 }
 
@@ -61,11 +68,6 @@ let apaga_um
 let contador = 0
 
 function operacao() {
-
-    if(event.keyCode == 49){
-        digitou = 1
-    }
-    
     valor_um = Number(tela.innerHTML)
     console.log(`Tenho valor1 ${valor_um}`)
     tela.innerText = ''
@@ -74,12 +76,14 @@ function operacao() {
 }
 
 function igual() {
+    digitou = event.keyCode
     let valor_dois = Number(tela.innerText)
-    console.log(`Tem valor dois = ${valor_dois}`)
+    // console.log(`Tem valor dois = ${valor_dois}`)
     tela.innerText = ''
-
+    console.log(digitou)
     if (operador == '/') {
         result = valor_um / valor_dois
+        console.log(digitou)
         if (valor_dois == 0) {
             result = 'Error'
         }
@@ -96,7 +100,7 @@ function igual() {
 
     valor_um = result
     tela.innerText = result
-    console.log(`Tem valor1 = ${valor_um}`)
+    // console.log(`Tem valor1 = ${valor_um}`)
 }
 
 function um_por_vez() {
