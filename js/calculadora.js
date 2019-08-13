@@ -34,6 +34,9 @@ function igual() {
 
     if (operador == '/') {
         result = valor_um / valor_dois
+        if(valor_dois == 0){
+            result = 'Error'
+        }
     }
     else if (operador == '*') {
         result = valor_um * valor_dois
