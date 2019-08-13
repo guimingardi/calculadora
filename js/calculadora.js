@@ -12,14 +12,60 @@ let reset = document.querySelector('.clear').addEventListener('click', zerar)
 let equal = document.querySelector('.equal').addEventListener('click', igual)
 let clear = document.querySelector('.one-one').addEventListener('click', um_por_vez)
 let dot = document.querySelector('.dot').addEventListener('click', ponto)
+document.addEventListener('keydown', digitado)
+
+let digitou 
+
+
+function digitado() {
+    digitou = event.keyCode
+    if(digitou == 49){
+        tela.innerText +=1
+    }
+    else if(digitou == 50){
+        tela.innerText +=2
+    }
+    else if(digitou == 51){
+        tela.innerText +=3
+    }
+    else if(digitou == 52){
+        tela.innerText +=4
+    }
+    else if(digitou == 53){
+        tela.innerText +=5
+    }
+    else if(digitou == 54){
+        tela.innerText +=6
+    }
+    else if(digitou == 55){
+        tela.innerText +=7
+    }
+    else if(digitou == 56){
+        tela.innerText +=8
+    }
+    else if(digitou == 57){
+        tela.innerText +=9
+    }
+    else if(digitou == 48){
+        tela.innerText +=0
+    }
+    else if(digitou == 48){
+        tela.innerText +=0
+    } else if (digitou == 43){
+    }
+}
 
 let operador
 let valor_um
 let apaga_um
-let contador = 0 
-
+let contador = 0
 
 function operacao() {
+
+    if(event.keyCode == 49){
+        digitou = 1
+    }
+    
     valor_um = Number(tela.innerHTML)
     console.log(`Tenho valor1 ${valor_um}`)
     tela.innerText = ''
@@ -34,7 +80,7 @@ function igual() {
 
     if (operador == '/') {
         result = valor_um / valor_dois
-        if(valor_dois == 0){
+        if (valor_dois == 0) {
             result = 'Error'
         }
     }
@@ -45,7 +91,7 @@ function igual() {
         result = valor_um - valor_dois
     }
     else if (operador == '+') {
-        result = valor_um + valor_dois    
+        result = valor_um + valor_dois
     }
 
     valor_um = result
@@ -53,24 +99,24 @@ function igual() {
     console.log(`Tem valor1 = ${valor_um}`)
 }
 
-function um_por_vez(){
+function um_por_vez() {
     tela.innerText = tela.innerText.slice(0, -1)
     // preciso zerar o contador quando o ponto for apagado
 }
 
-function zerar(){
+function zerar() {
     contador = 0
     valor_um = 0
     valor_dois = 0
     tela.innerText = ''
 }
 
-function ponto(){
+function ponto() {
     contador++
-    if (contador > 1){
+    if (contador > 1) {
         tela.innerText = 'Error'
     }
-    if(tela.innerText == '.'){
+    if (tela.innerText == '.') {
         tela.innerText = '0.'
     }
 }
