@@ -11,16 +11,20 @@ ops.map(operador => operador.addEventListener('click', operacao))
 let reset = document.querySelector('.clear').addEventListener('click', zerar)
 let equal = document.querySelector('.equal').addEventListener('click', igual)
 let clear = document.querySelector('.one-one').addEventListener('click', um_por_vez)
+let dot = document.querySelector('.dot').addEventListener('click', ponto)
 
 let operador
 let valor_um
 let apaga_um
+let contador = 0 
+
 
 function operacao() {
     valor_um = Number(tela.innerHTML)
     console.log(`Tenho valor1 ${valor_um}`)
     tela.innerText = ''
     operador = event.target.innerText
+    contador = 0
 }
 
 function igual() {
@@ -47,16 +51,23 @@ function igual() {
 }
 
 function um_por_vez(){
-    // debugger
     tela.innerText = tela.innerText.slice(0, -1)
-    console.log(`Esse é o botão que limpa um de cada vez ${apaga_um}`)
-
+    // preciso zerar o contador quando o ponto for apagado
 }
 
 function zerar(){
+    contador = 0
     valor_um = 0
     valor_dois = 0
     tela.innerText = ''
+}
+
+
+function ponto(){
+    contador++
+    if (contador > 1){
+        tela.innerText = 'Error'
+    }
 }
 
 
