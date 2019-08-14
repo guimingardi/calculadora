@@ -23,14 +23,17 @@ let valor_dois
 let apaga_um
 let contador = 0
 let tc_ops
+let result
 
 function digitado() {
     digitou = event.key
-    console.log(digitou)
 
     if (digitou == 'Backspace') {
         tela.innerText = tela.innerText.slice(0, -1)
-    } else if (digitou >= 0 || digitou <= 9) {
+    } else if (digitou == 'Escape'){
+        zerar()
+    } 
+    else if (digitou >= 0 || digitou <= 9) {
         tela.innerText += digitou
     }
     else if (digitou == '.') {
@@ -47,13 +50,14 @@ function resultado() {
     if (tc_ops == '+') {
         valor_um = Number(tela.innerHTML)
         tela.innerText = ''
-        result = valor_um + valor_dois
     }
     else if (digitou == '=') {
         valor_dois = Number(tela.innerText)
+        if(tc_ops == '+'){
+            result = valor_um + valor_dois
+        }
         valor_um = result
         result = tela.innerText
-        console.log(result)
     }
 }
 
