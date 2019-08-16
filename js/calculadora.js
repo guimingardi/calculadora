@@ -13,9 +13,6 @@ let equal = document.querySelector('.equal').addEventListener('click', igual)
 let clear = document.querySelector('.one-one').addEventListener('click', um_por_vez)
 let dot = document.querySelector('.dot').addEventListener('click', ponto)
 document.addEventListener('keydown', digitado)
-// document.addEventListener('keydown', )
-
-
 
 let digitou
 let operador
@@ -49,52 +46,41 @@ function digitado() {
         contador++
     }
     tc_operador(event)
-   
 }
 
 function tc_operador(event) {
-    // debugger
     tc_ops = event.key
-    if(tc_ops == '-' || tc_ops == '*' || tc_ops == '+' || tc_ops == '/'){
+    if (tc_ops == '-' || tc_ops == '*' || tc_ops == '+' || tc_ops == '/') {
         event.key = tc_ops
         num_temp = Number(tela.innerText)
         tela.innerText = ''
         if (result == 0) {
             result = num_temp
         }
-
         prev_tc_ops = tc_ops;
-    } 
+    }
 
     if (tc_ops == '=' || tc_ops == 'Enter') {
+        valor_dois = Number(tela.innerText)
         if (prev_tc_ops == '+') {
-            result = result + Number(tela.innerText)
+            result = result + valor_dois
         }
 
         if (prev_tc_ops == '-') {
-            result = result - Number(tela.innerText)
+            result = result - valor_dois
         }
 
         if (prev_tc_ops == '*') {
-            result = result * Number(tela.innerText)
+            result = result * valor_dois
         }
 
         if (prev_tc_ops == '/') {
-            result = result / Number(tela.innerText)
+            result = result / valor_dois
         }
 
         tela.innerText = result
     }
-
-
 }
-
-
-
-
-
-
-
 
 
 function operacao() {
@@ -123,7 +109,6 @@ function igual() {
     else if (operador == '+') {
         result = valor_um + valor_dois
     }
-
     valor_um = result
     tela.innerText = result
 }
@@ -137,17 +122,19 @@ function zerar() {
     valor_um = 0
     valor_dois = 0
     tela.innerText = ''
+    result = 0
+    num_temp = 0
 }
 
 function ponto() {
     // if (contador > 1) {
-
+        
     // }
-    contador++
-
     if (tela.innerText == '.') {
         tela.innerText = '0.'
     }
+    contador++
+
 }
 
 
