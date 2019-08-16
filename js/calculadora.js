@@ -120,46 +120,4 @@ function ponto() {
     }
 }
 
-    // console.log(event.keyCode)
-    // if (digitou == 49) {
-    //     tela.innerText += 1
-    // }
-    // else if (digitou == 50) {
-    //     tela.innerText += 2
-    // }
-    // else if (digitou == 51) {
-    //     tela.innerText += 3
-    // }
-    // else if (digitou == 52) {
-    //     tela.innerText += 4
-    // }
-    // else if (digitou == 53) {
-    //     tela.innerText += 5
-    // }
-    // else if (digitou == 54) {
-    //     tela.innerText += 6
-    // }
-    // else if (digitou == 55) {
-    //     tela.innerText += 7
-    // }
-    // else if (digitou == 56) {
-    //     tela.innerText += 8
-    // }
-    // else if (digitou == 57) {
-    //     tela.innerText += 9
-    // }
-    // else if (digitou == 48) {
-    //     tela.innerText += 0
-    // }
-    // else if (digitou == 48) {
-    //     tela.innerText += 0
-    // } else if (digitou == 8) {
-    //     um_por_vez()
-    // }
-    // else if (digitou == 27) {
-    //     zerar()
-    // }
-    // else if (digitou == 187){
-    //     igual()
-    // }
 
