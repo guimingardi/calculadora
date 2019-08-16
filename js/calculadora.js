@@ -30,9 +30,9 @@ function digitado() {
 
     if (digitou == 'Backspace') {
         tela.innerText = tela.innerText.slice(0, -1)
-    } else if (digitou == 'Escape'){
+    } else if (digitou == 'Escape') {
         zerar()
-    } 
+    }
     else if (digitou >= 0 || digitou <= 9) {
         tela.innerText += digitou
     }
@@ -47,17 +47,23 @@ function digitado() {
 }
 function resultado() {
     tc_ops = event.key
-    if (tc_ops == '+') {
+    tc_equal = event.keyCode
+    if (event.key == '+' || event.key == '-' || event.key == '*' || event.key == '/') {
         valor_um = Number(tela.innerHTML)
-        tela.innerText = ''
-    }
-    else if (digitou == '=') {
-        valor_dois = Number(tela.innerText)
-        if(tc_ops == '+'){
-            result = valor_um + valor_dois
+        if (tc_ops == '+') {
+            tela.innerText = ''
         }
-        valor_um = result
-        result = tela.innerText
+        if (tc_equal == 187) {
+            if (tc_ops == '+') {
+                valor_dois = Number(tela.innerText)
+                result = valor_um + valor_dois
+                valor_um = result
+                // debugger
+                console.log('cara chegou aqui')
+                tela.innerText = result
+            }
+
+        }
     }
 }
 

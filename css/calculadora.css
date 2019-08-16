@@ -1,7 +1,6 @@
 .container{
     height: 420px;
     width: 25%;
-    /* border: 1px solid black; */
     margin: 5%;
 }
 
@@ -22,7 +21,6 @@
 .line{
     width: 100%;
     height: 70px;
-    /* border-bottom: 2px solid black; */
     box-sizing: border-box;
     display: flex;
 }
@@ -33,7 +31,6 @@
 
 .numbers, .one-one, .clear{
     width: 25%;
-    /* border-left: solid black 2px ; */
     box-sizing: border-box;
     text-align: center;
     font-size: 30px;
@@ -51,10 +48,8 @@
 
 .operators, .equal{
     background-color: #df974c;
-    /* border-right: solid black 2px; */
     color: white;
     width: 25%;
-    /* border-left: solid black 2px ; */
     box-sizing: border-box;
     text-align: center;
     font-size: 30px;
@@ -70,15 +65,12 @@
 }
 
 .zero{
-    /* border-left: solid black 1px; */
-    /* border-left: solid black 1px ; */
     box-sizing: border-box;
     text-align: center;
     font-size: 30px;
     line-height: 75px;
     background-color: #d8d9db;
     width: 50%;
-    /* border-left: solid black */
 }
 
 .clear{
