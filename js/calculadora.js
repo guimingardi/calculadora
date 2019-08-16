@@ -65,8 +65,8 @@ function tc_operador(event) {
 
         prev_tc_ops = tc_ops;
     } 
-    
-    if (tc_ops == '=') {
+
+    if (tc_ops == '=' || tc_ops == 'Enter') {
         if (prev_tc_ops == '+') {
             result = result + Number(tela.innerText)
         }
