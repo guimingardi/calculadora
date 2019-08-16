@@ -13,8 +13,9 @@ let equal = document.querySelector('.equal').addEventListener('click', igual)
 let clear = document.querySelector('.one-one').addEventListener('click', um_por_vez)
 let dot = document.querySelector('.dot').addEventListener('click', ponto)
 document.addEventListener('keydown', digitado)
+// document.addEventListener('keydown', )
 
-document.addEventListener('keydown', resultado)
+
 
 let digitou
 let operador
@@ -22,20 +23,23 @@ let valor_um
 let valor_dois
 let apaga_um
 let contador = 0
+let result = 0
 let tc_ops
-let result
+let tc_igual
 
 function digitado() {
     digitou = event.key
-
     if (digitou == 'Backspace') {
         tela.innerText = tela.innerText.slice(0, -1)
-    } else if (digitou == 'Escape') {
+    }
+
+    else if (digitou == 'Escape') {
         zerar()
     }
     else if (digitou >= 0 || digitou <= 9) {
         tela.innerText += digitou
     }
+
     else if (digitou == '.') {
         if (contador > 1) {
             return
@@ -44,28 +48,54 @@ function digitado() {
         ponto()
         contador++
     }
+    tc_operador(event)
+   
 }
-function resultado() {
-    tc_ops = event.key
-    tc_equal = event.keyCode
-    if (event.key == '+' || event.key == '-' || event.key == '*' || event.key == '/') {
-        valor_um = Number(tela.innerHTML)
-        if (tc_ops == '+') {
-            tela.innerText = ''
-        }
-        if (tc_equal == 187) {
-            if (tc_ops == '+') {
-                valor_dois = Number(tela.innerText)
-                result = valor_um + valor_dois
-                valor_um = result
-                // debugger
-                console.log('cara chegou aqui')
-                tela.innerText = result
-            }
 
+function tc_operador(event) {
+    // debugger
+    tc_ops = event.key
+    if(tc_ops == '-' || tc_ops == '*' || tc_ops == '+' || tc_ops == '/'){
+        event.key = tc_ops
+        num_temp = Number(tela.innerText)
+        tela.innerText = ''
+        if (result == 0) {
+            result = num_temp
         }
+
+        prev_tc_ops = tc_ops;
+    } 
+    
+    if (tc_ops == '=') {
+        if (prev_tc_ops == '+') {
+            result = result + Number(tela.innerText)
+        }
+
+        if (prev_tc_ops == '-') {
+            result = result - Number(tela.innerText)
+        }
+
+        if (prev_tc_ops == '*') {
+            result = result * Number(tela.innerText)
+        }
+
+        if (prev_tc_ops == '/') {
+            result = result / Number(tela.innerText)
+        }
+
+        tela.innerText = result
     }
+
+
 }
+
+
+
+
+
+
+
+
 
 function operacao() {
     valor_um = Number(tela.innerHTML)
